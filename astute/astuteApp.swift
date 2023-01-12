@@ -12,7 +12,7 @@ struct astuteApp: App {
     var body: some Scene {
         WindowGroup {
            // SplashScreenView()
-            ContentView()
+            SplashScreenView()
         }
     }
 }

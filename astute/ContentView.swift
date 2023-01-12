@@ -287,7 +287,7 @@ struct ContentView: View {
                                         .resizable()
                                         .frame(width: 36,height: 24)
                                         .foregroundColor(Color(red: 0.309, green: 0.334, blue: 0.364))
-                                    Text("Speach")
+                                    Text("Speech")
                                         .foregroundColor(Color(red: 0.309, green: 0.334, blue: 0.364))
                                 }
                             })
@@ -492,16 +492,17 @@ struct ContentView: View {
                             VStack(alignment: .center){
                                 HStack{
                                     Button{
-                                      //  speach = false
-//                                        let utterance2 = AVSpeechUtterance(string:"\(scanText)")
-//                                        utterance2.rate = speedrate
-//                                        let Voices = AVSpeechSynthesisVoice.speechVoices()
-//                                        for Voice in Voices{
-//                                            print(Voice.language)
-//                                        }
-                                        utterance.speak(AVSpeechUtterance(string: "hi"))
-//                                        if utterance.isSpeaking{
-//                                           // utterance.pauseSpeaking(at: .immediate)
+                                        speach = false
+                                        let utterance2 = AVSpeechUtterance(string:"\(scanText)")
+                                        utterance2.rate = speedrate
+                                        let Voices = AVSpeechSynthesisVoice.speechVoices()
+                                        for Voice in Voices{
+                                            print(Voice.language)
+                                        }
+                                        utterance.speak(utterance2)
+                                        if utterance.isSpeaking{
+                                             utterance.pauseSpeaking(at: .immediate)
+                                        }
 //                                            utterance.stopSpeaking(at: .immediate)
 //                                            //                                            utterance.speak(utterance2)
 //                                        }
@@ -519,20 +520,18 @@ struct ContentView: View {
                                         }
                                 }
                                     Button{
-//                                        speach = false
-//                                        let utterance2 = AVSpeechUtterance(string:"\(scanText)")
-//                                        utterance2.rate = speedrate
-//                                        let Voices = AVSpeechSynthesisVoice.speechVoices()
-//                                        for Voice in Voices{
-//                                            print(Voice.language)
-//                                        }
-//                                        utterance.speak(utterance2)
-//                                        if utterance.isSpeaking{
-                                  //  utterance.pauseSpeaking(at: .immediate)
-                                      //  utterance.stopSpeaking(at: .immediate)
-                                        utterance.pauseSpeaking(at: .immediate)
-                                        print("tapped")
-//                                        }
+                                        speach = false
+                                        let utterance2 = AVSpeechUtterance(string:"\(scanText)")
+                                        utterance2.rate = speedrate
+                                        let Voices = AVSpeechSynthesisVoice.speechVoices()
+                                        for Voice in Voices{
+                                            print(Voice.language)
+                                        }
+                                        utterance.speak(utterance2)
+                                        if utterance.isSpeaking{
+                                    utterance.pauseSpeaking(at: .immediate)
+
+                                        }
    
                                     }
                                 label: {
@@ -551,7 +550,7 @@ struct ContentView: View {
                         .padding(.vertical)
                         .padding(.all, 26.0)
                         
-                        .navigationTitle("Speach")
+                        .navigationTitle("Speech")
                     }
                     
                 }
