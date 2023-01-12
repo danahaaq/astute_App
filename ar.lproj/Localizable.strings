@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  astute
+
+  Created by Aldanah Alqbbani on 16/06/1444 AH.
+  
+*/
+"Background" = "الخلفية";
+"Scan" = "مسح";
+"Ruler" = "مسطرة";
+"Speach" = "قراءة";
+"Text" = "نص";
+"Color" = "لون";
+"Wight" = "عرض";
+"Size" = "حجم";
+"Insert" = "عرض";
+"Remove" = "إزالة";
+"Save" = "حفظ";
+"Speed" = "سرعة";
+
