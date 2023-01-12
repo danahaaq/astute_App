@@ -6,6 +6,15 @@ App Name: astute App
 
 Challinge Statement:
 Help Dyslexic Person who's need to understanding the redden text better Because it will make their life easier.
+
+Solution Concept:
 Making dyslexic life easier by providing them with the support they need while reading to understand the text.
+
+Technologies & Tools:
+SwiftUI
+UIKit
+Accessibility
+AVFoundation
+Vision Kit
 
 
