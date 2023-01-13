@@ -11,7 +11,6 @@ import SwiftUI
 struct astuteApp: App {
     var body: some Scene {
         WindowGroup {
-           // SplashScreenView()
             SplashScreenView()
         }
     }
