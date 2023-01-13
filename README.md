@@ -23,6 +23,10 @@
 ### - AVFoundation
 ### - Vision Kit
 
+## Languages
+### - Arabic
+### - English
+
 ## Demo of the App
 
 https://user-images.githubusercontent.com/115739420/212089362-ce1f578d-5d42-4a0b-8508-ec9e3e97dd68.mp4
