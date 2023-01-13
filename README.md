@@ -1,11 +1,10 @@
 
-#### ![512](https://user-images.githubusercontent.com/115739420/212080608-dc628c22-199b-43cb-a492-7eea57e5432b.png)
+
 # astute App
+#### ![512](https://user-images.githubusercontent.com/115739420/212080608-dc628c22-199b-43cb-a492-7eea57e5432b.png)
 
-
-## Big Idea
-
-### Inclusion
+## Date Created 
+### 13 Jan 2023
 
 ## Challinge Statement
 
