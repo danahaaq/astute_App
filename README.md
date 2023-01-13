@@ -13,7 +13,7 @@
 
 ## Solution Concept
 
-### Making dyslexic life easier by providing them with the support they need while reading to understand the text.
+### Making Dyslexic life easier by providing them with the support they need while reading to understand the text.
 
 ## Technologies & Tools
 
@@ -29,7 +29,7 @@ https://user-images.githubusercontent.com/115739420/212089362-ce1f578d-5d42-4a0b
 
 ## Challenge Summary 
 
-### The app is there to make people and spicily dyslexic life easier and save their time while reading, and it can scan any text and control the size of the selected text. Also, there is a higher ruler to help focus on a specific line or more while reading, and they can ask the app to read the text and change the speed for a better experience.
+### The App is there to make people and spicily dyslexic life easier and save their time while reading, and it can scan any text and control the size of the selected text. Also, there is a higher ruler to help focus on a specific line or more while reading, and they can ask the app to read the text and change the speed for a better experience.
 
 ![25_The Launch_ADATWQ_2022_2023](https://user-images.githubusercontent.com/115739420/212084157-fa997f42-96c1-4796-b22b-8c730306f948.jpeg)
 
