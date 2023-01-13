@@ -17,11 +17,11 @@
 
 ## Technologies & Tools
 
-### SwiftUI
-### UIKit
-### Accessibility
-### AVFoundation
-###Vision Kit
+### - SwiftUI
+### - UIKit
+### - Accessibility
+### - AVFoundation
+### - Vision Kit
 
 ## Demo of the App
 
