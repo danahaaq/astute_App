@@ -18,6 +18,7 @@ private let onBoardingSteps = [
     OnBoardingStep(image: "3", title: "Listen",title2: "to the text.")]
 
 struct Onbording: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var ispressed :Bool = false
     @State private var currentStep = 0
     var body: some View {
@@ -31,7 +32,7 @@ struct Onbording: View {
                 }label: {
                     Text("Skip")
                         .font(.system(size: 19))
-                        .foregroundColor(Color(red: 0.309, green: 0.334, blue: 0.364))
+                        .foregroundColor(colorScheme == .dark ? .white : .gray)
                 }.fullScreenCover(isPresented:$ispressed, content: ContentView.init)}
             .padding()
             TabView(selection: $currentStep){
@@ -53,7 +54,7 @@ struct Onbording: View {
                             Text(onBoardingSteps[it].title2)
                                 .font(.title)
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color.black)
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
                             
                         }
                         HStack(alignment: .center){
@@ -84,6 +85,13 @@ struct Onbording: View {
 
 struct Onbording_Previews: PreviewProvider {
     static var previews: some View {
-        Onbording()
+        Group {
+            Onbording()
+                .environment(\.colorScheme, .light)
+            
+            Onbording()
+                .environment(\.colorScheme, .dark)
+        }
+        
     }
 }

@@ -10,8 +10,10 @@ import VisionKit
 import HalfASheet
 import AVFoundation
 
-let utterance = AVSpeechSynthesizer()
+var utterance = AVSpeechSynthesizer()
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @State private var currentPosition: CGSize = .zero
     @State private var newPosition: CGSize = .zero
     @State private var parentRect: CGRect = .zero
@@ -318,6 +320,8 @@ struct ContentView: View {
                     // NavigationView for the tile ruler
                     NavigationView{
                         // Vstack parient
+                        ZStack{
+                        Color(colorScheme == .dark ? .gray : .white)
                         VStack(alignment: .center, spacing: 24){
                             //Vstack for the ruler background color
                             VStack(alignment: .leading){
@@ -377,6 +381,7 @@ struct ContentView: View {
                                     
                                     ColorPicker("Color", selection: $bgColor1).labelsHidden()
                                 }
+
                             }
                             //stack for the wight slider
                             VStack(alignment: .leading,spacing: 10){
@@ -389,8 +394,6 @@ struct ContentView: View {
                                     Text("\(Int(sliderValue))")
                                         .padding()
                                 }
-                                
-                                
                             }.padding()
                             HStack(alignment: .center,spacing: 20){
                                 Button(action :{
@@ -424,140 +427,134 @@ struct ContentView: View {
                                         }
                                     
                                 })
-                            }
-                            
+                            }  .navigationTitle("Ruler")
                         }
-                        .navigationTitle("Ruler")
+                    }
                     }
                 }
+                .backgroundColor(colorScheme == .dark ? .gray : .white)
                 .height(.proportional(0.60))
                 .closeButtonColor(UIColor.lightGray)
-                .backgroundColor(.white)
+
                 
                 //halfsheeet 2 for Text
                 HalfASheet(isPresented: $text) {
                     NavigationView{
-                        VStack(alignment: .center,spacing: 24) {
-                            VStack(alignment: .leading,spacing: 10){
-                                Text("Wight")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
-                                HStack(alignment: .center){
-                                    Text("Size")
-                                    Slider(value: $sliderValue2, in: 12...30)
-                                    Text("\(Int(sliderValue2))")
-                                        .padding()
-                                }
-                                
-                            }
-                            Button(action :{
-                                Big_text = true
-                                text.toggle()
-                            }, label: {
-                                RoundedRectangle(cornerRadius: 11)
-                                    .frame(width: 147,height: 52)
-                                    .foregroundColor(Color.blue)
-                                    .overlay{
-                                        Text("Save")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.white)
+                        ZStack{
+                            Color(colorScheme == .dark ? .gray : .white)
+                            VStack(alignment: .center,spacing: 24) {
+                                VStack(alignment: .leading,spacing: 10){
+                                    Text("Wight")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
+                                    HStack(alignment: .center){
+                                        Text("Size")
+                                        Slider(value: $sliderValue2, in: 12...30)
+                                        Text("\(Int(sliderValue2))")
+                                            .padding()
                                     }
-                            })
+                                    
+                                }
+                                Button(action :{
+                                    Big_text = true
+                                    text.toggle()
+                                }, label: {
+                                    RoundedRectangle(cornerRadius: 11)
+                                        .frame(width: 147,height: 52)
+                                        .foregroundColor(Color.blue)
+                                        .overlay{
+                                            Text("Save")
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.white)
+                                        }
+                                })
+                            }
                         }
                         .navigationTitle("Text")
                     }
                 }
                 .height(.proportional(0.40))
                 .closeButtonColor(UIColor.lightGray)
-                .backgroundColor(.white)
+                .backgroundColor(colorScheme == .dark ? .gray : .white)
                 
                 //halfsheeet 3
                 HalfASheet(isPresented: $speach) {
                     NavigationView{
-                        VStack(alignment: .center,spacing: 20){
-                            VStack(alignment: .leading){
-                                Text("Speed")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
-                                HStack(alignment: .center){
-                                    Image(systemName: "tortoise")
-                                        .foregroundColor(Color(red: 0.565, green: 0.565, blue: 0.586))
-                                    Slider(value: $speedrate, in: 0.1...0.6)
-                                    Image(systemName: "hare")
-                                        .foregroundColor(Color(red: 0.565, green: 0.565, blue: 0.586))
-                                    
-                                        .padding()
+                        ZStack{
+                            Color(colorScheme == .dark ? .gray : .white)
+                            VStack(alignment: .center,spacing: 20){
+                                VStack(alignment: .leading){
+                                    Text("Speed")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
+                                    HStack(alignment: .center){
+                                        Image(systemName: "tortoise")
+                                            .foregroundColor(Color(red: 0.565, green: 0.565, blue: 0.586))
+                                        Slider(value: $speedrate, in: 0.1...0.6)
+                                        Image(systemName: "hare")
+                                            .foregroundColor(Color(red: 0.565, green: 0.565, blue: 0.586))
+                                        
+                                            .padding()
+                                    }
+                                }
+                                VStack(alignment: .center){
+                                    HStack{
+                                        Button{
+                                            speach = false
+                                            let utterance2 = AVSpeechUtterance(string:"\(scanText)")
+                                            utterance2.rate = speedrate
+                                            let Voices = AVSpeechSynthesisVoice.speechVoices()
+                                            for Voice in Voices{
+                                                print(Voice.language)
+                                            }
+                                            utterance.speak(utterance2)
+                                        }
+                                    label: {
+                                        RoundedRectangle(cornerRadius: 11)
+                                            .frame(width: 147,height: 52)
+                                            .foregroundColor(Color.blue)
+                                            .overlay{
+                                                Text("Speak")
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.white)
+                                            }
+                                    }
+                                        Button{
+                                            speach = false
+                                            let utterance3 = AVSpeechUtterance(string:"")
+                                            utterance3.rate = speedrate
+                                            let Voices = AVSpeechSynthesisVoice.speechVoices()
+                                            for Voice in Voices{
+                                                print(Voice.language)
+                                            }
+                                            //                                        utterance.stop(utterance2)
+                                            utterance.speak(utterance3)
+                                        }
+                                    label: {
+                                        RoundedRectangle(cornerRadius: 11)
+                                            .frame(width: 147,height: 52)
+                                            .foregroundColor(Color(red: 0.941, green: 0.941, blue: 0.941))
+                                            .overlay{
+                                                Text("Stop")
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.blue)
+                                            }
+                                    }
+                                    }
                                 }
                             }
-                            VStack(alignment: .center){
-                                HStack{
-                                    Button{
-                                        speach = false
-                                        let utterance2 = AVSpeechUtterance(string:"\(scanText)")
-                                        utterance2.rate = speedrate
-                                        let Voices = AVSpeechSynthesisVoice.speechVoices()
-                                        for Voice in Voices{
-                                            print(Voice.language)
-                                        }
-                                        utterance.speak(utterance2)
-                                        if utterance.isSpeaking{
-                                             utterance.pauseSpeaking(at: .immediate)
-                                        }
-//                                            utterance.stopSpeaking(at: .immediate)
-//                                            //                                            utterance.speak(utterance2)
-//                                        }
-//
-                                        //                                    utterance.stopSpeaking(at: .immediate)
-                                    }
-                                label: {
-                                    RoundedRectangle(cornerRadius: 11)
-                                        .frame(width: 147,height: 52)
-                                        .foregroundColor(Color.blue)
-                                        .overlay{
-                                            Text("Speak")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.white)
-                                        }
-                                }
-                                    Button{
-                                        speach = false
-                                        let utterance2 = AVSpeechUtterance(string:"\(scanText)")
-                                        utterance2.rate = speedrate
-                                        let Voices = AVSpeechSynthesisVoice.speechVoices()
-                                        for Voice in Voices{
-                                            print(Voice.language)
-                                        }
-                                        utterance.speak(utterance2)
-                                        if utterance.isSpeaking{
-                                    utterance.pauseSpeaking(at: .immediate)
-
-                                        }
-   
-                                    }
-                                label: {
-                                    RoundedRectangle(cornerRadius: 11)
-                                        .frame(width: 147,height: 52)
-                                        .foregroundColor(Color(red: 0.941, green: 0.941, blue: 0.941))
-                                        .overlay{
-                                            Text("Stop")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.blue)
-                                        }
-                                }
-                                }
-                            }
+                            .padding(.vertical)
+                            .padding(.all, 26.0)
                         }
-                        .padding(.vertical)
-                        .padding(.all, 26.0)
+                            .navigationTitle("Speech")
                         
-                        .navigationTitle("Speech")
                     }
                     
                 }
                 
                 .height(.proportional(0.50))
                 .closeButtonColor(UIColor.lightGray)
-                .backgroundColor(.white)
+                .backgroundColor(colorScheme == .dark ? .gray : .white)
             }.navigationBarBackButtonHidden(true)
             
         }
