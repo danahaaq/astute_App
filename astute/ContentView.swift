@@ -12,6 +12,7 @@ import AVFoundation
 
 var utterance = AVSpeechSynthesizer()
 struct ContentView: View {
+    
     @Environment(\.colorScheme) var colorScheme
     
     @State private var currentPosition: CGSize = .zero
@@ -57,7 +58,7 @@ struct ContentView: View {
     @State var speach: Bool = false
     
     @State private var bgColor = Color(red: 0.965, green: 0.965, blue: 0.965)
-    @State private var bgColor1 = Color(.white)
+    @State private var bgColor1 = Color(.blue)
     
     @State var sliderValue : Float = 389.0
     @State var sliderValue2 : Float = 19.0
@@ -76,73 +77,18 @@ struct ContentView: View {
                     //                     Vstack for share button,bacground color
                     VStack{
                         VStack(alignment: .leading,spacing: 10){
-                            Text("Background")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
-                            //                            color bar
-                            HStack(alignment: .center, spacing:19){
-                                Button(action:{
-                                    bgColor = Color(red: 0.914, green: 0.901, blue: 0.619)
-                                }
-                                       , label: {
-                                    Circle()
-                                        .frame(width: 30,height: 30)
-                                        .foregroundColor(Color(red: 0.914, green: 0.901, blue: 0.619))
-                                })
-                                Button(action:{
-                                    bgColor = Color(red: 0.72, green: 0.55, blue: 0.687)
-                                }
-                                       , label: {
-                                    Circle()
-                                        .frame(width: 30,height: 30)
-                                        .foregroundColor(Color(red: 0.72, green: 0.55, blue: 0.687))
-                                })
-                                Button(action:{
-                                    bgColor = Color(red: 0.412, green: 0.917, blue: 0.967)
-                                }
-                                       , label: {
-                                    Circle()
-                                        .frame(width: 30,height: 30)
-                                        .foregroundColor(Color(red: 0.412, green: 0.917, blue: 0.967))
-                                })
-                                Button(action:{
-                                    bgColor = Color(red: 0.971, green: 0.727, blue: 0.528)
-                                }
-                                       , label: {
-                                    Circle()
-                                        .frame(width: 30,height: 30)
-                                        .foregroundColor(Color(red: 0.971, green: 0.727, blue: 0.528))
-                                })
-                                Button(action:{
-                                    bgColor = Color(red: 0.43, green: 0.945, blue: 0.668)
-                                }
-                                       , label: {
-                                    Circle()
-                                        .frame(width: 30,height: 30)
-                                        .foregroundColor(Color(red: 0.43, green: 0.945, blue: 0.668))
-                                })
-                                Button(action:{
-                                    bgColor = Color(red: 0.43, green: 0.945, blue: 0.668)
-                                }
-                                       , label: {
-                                    Circle()
-                                        .frame(width: 30,height: 30)
-                                        .foregroundColor(Color(red: 0.168, green: 0.959, blue: 0.857))
-                                })
+                            ColorButton(bgColor: $bgColor)
+                        }
+                        .padding()
+                        .toolbar{ ToolbarItem(placement: .navigationBarTrailing){
+                            Button(action:{
                                 
-                                ColorPicker("Background color", selection: $bgColor).labelsHidden()
-                            }
-                            
-                        } .padding()
-                            .toolbar{ ToolbarItem(placement: .navigationBarTrailing){
-                                Button(action:{
-                                    
-                                }, label:{
-                                    Image(systemName: "square.and.arrow.up")
-                                        .foregroundColor(Color(red: 0.309, green: 0.334, blue: 0.364))
-                                })
-                            }
-                            }
+                            }, label:{
+                                Image(systemName: "square.and.arrow.up")
+                                    .foregroundColor(Color(red: 0.309, green: 0.334, blue: 0.364))
+                            })
+                        }
+                        }
                     }
                     //                    Vstack for text and ruler
                     //                     text and ruler
@@ -312,131 +258,72 @@ struct ContentView: View {
                         startScanning.toggle()
                     }
                 }
-                
                 //                Zstack content 2
-                
                 //                Halfsheet 1 for the Ruler
                 HalfASheet(isPresented: $ruler) {
                     // NavigationView for the tile ruler
                     NavigationView{
                         // Vstack parient
                         ZStack{
-                        Color(colorScheme == .dark ? .gray : .white)
-                        VStack(alignment: .center, spacing: 24){
-                            //Vstack for the ruler background color
-                            VStack(alignment: .leading){
-                                Text("Color")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
-                                //color bar
-                                HStack(alignment: .center, spacing:19){
-                                    Button(action:{
-                                        bgColor1 = Color(red: 0.914, green: 0.901, blue: 0.619)
-                                    }
-                                           , label: {
-                                        Circle()
-                                            .frame(width: 30,height: 30)
-                                            .foregroundColor(Color(red: 0.914, green: 0.901, blue: 0.619))
-                                    })
-                                    Button(action:{
-                                        bgColor1 = Color(red: 0.72, green: 0.55, blue: 0.687)
-                                    }
-                                           , label: {
-                                        Circle()
-                                            .frame(width: 30,height: 30)
-                                            .foregroundColor(Color(red: 0.72, green: 0.55, blue: 0.687))
-                                    })
-                                    Button(action:{
-                                        bgColor1 = Color(red: 0.412, green: 0.917, blue: 0.967)
-                                    }
-                                           , label: {
-                                        Circle()
-                                            .frame(width: 30,height: 30)
-                                            .foregroundColor(Color(red: 0.412, green: 0.917, blue: 0.967))
-                                    })
-                                    Button(action:{
-                                        bgColor1 = Color(red: 0.971, green: 0.727, blue: 0.528)
-                                    }
-                                           , label: {
-                                        Circle()
-                                            .frame(width: 30,height: 30)
-                                            .foregroundColor(Color(red: 0.971, green: 0.727, blue: 0.528))
-                                    })
-                                    Button(action:{
-                                        bgColor1 = Color(red: 0.43, green: 0.945, blue: 0.668)
-                                    }
-                                           , label: {
-                                        Circle()
-                                            .frame(width: 30,height: 30)
-                                            .foregroundColor(Color(red: 0.43, green: 0.945, blue: 0.668))
-                                    })
-                                    Button(action:{
-                                        bgColor1 = Color(red: 0.43, green: 0.945, blue: 0.668)
-                                    }
-                                           , label: {
-                                        Circle()
-                                            .frame(width: 30,height: 30)
-                                            .foregroundColor(Color(red: 0.168, green: 0.959, blue: 0.857))
-                                    })
-                                    
-                                    ColorPicker("Color", selection: $bgColor1).labelsHidden()
+                            Color(colorScheme == .dark ? .gray : .white)
+                            VStack(alignment: .center, spacing: 24){
+                                //Vstack for the ruler background color
+                                VStack(alignment: .leading){
+                                    RulerColor(bgColor: $bgColor1)
                                 }
-
+                                //stack for the wight slider
+                                VStack(alignment: .leading,spacing: 10){
+                                    Text("Wight")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
+                                    HStack(alignment: .center){
+                                        Text("Size")
+                                        Slider(value: $sliderValue, in: 380...1000)
+                                        Text("\(Int(sliderValue))")
+                                            .padding()
+                                    }
+                                }.padding()
+                                HStack(alignment: .center,spacing: 20){
+                                    Button(action :{
+                                        ruler_insert = true
+                                        ruler_remove = false
+                                        ruler.toggle()
+                                        
+                                    }, label: {
+                                        RoundedRectangle(cornerRadius: 11)
+                                            .frame(width: 147,height: 52)
+                                            .foregroundColor(Color.blue)
+                                            .overlay{
+                                                Text("Insert")
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.white)
+                                            }
+                                    })
+                                    Button(action :{
+                                        ruler_remove = true
+                                        ruler.toggle()
+                                        ruler_insert = false
+                                    }, label: {
+                                        
+                                        RoundedRectangle(cornerRadius: 11)
+                                            .frame(width: 147,height: 52)
+                                            .foregroundColor(Color(red: 0.941, green: 0.941, blue: 0.941))
+                                            .overlay{
+                                                Text("Remove")
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.blue)
+                                            }
+                                        
+                                    })
+                                }  .navigationTitle("Ruler")
                             }
-                            //stack for the wight slider
-                            VStack(alignment: .leading,spacing: 10){
-                                Text("Wight")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
-                                HStack(alignment: .center){
-                                    Text("Size")
-                                    Slider(value: $sliderValue, in: 380...1000)
-                                    Text("\(Int(sliderValue))")
-                                        .padding()
-                                }
-                            }.padding()
-                            HStack(alignment: .center,spacing: 20){
-                                Button(action :{
-                                    ruler_insert = true
-                                    ruler_remove = false
-                                    ruler.toggle()
-                                    
-                                }, label: {
-                                    RoundedRectangle(cornerRadius: 11)
-                                        .frame(width: 147,height: 52)
-                                        .foregroundColor(Color.blue)
-                                        .overlay{
-                                            Text("Insert")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.white)
-                                        }
-                                })
-                                Button(action :{
-                                    ruler_remove = true
-                                    ruler.toggle()
-                                    ruler_insert = false
-                                }, label: {
-                                    
-                                    RoundedRectangle(cornerRadius: 11)
-                                        .frame(width: 147,height: 52)
-                                        .foregroundColor(Color(red: 0.941, green: 0.941, blue: 0.941))
-                                        .overlay{
-                                            Text("Remove")
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.blue)
-                                        }
-                                    
-                                })
-                            }  .navigationTitle("Ruler")
                         }
-                    }
                     }
                 }
                 .backgroundColor(colorScheme == .dark ? .gray : .white)
                 .height(.proportional(0.60))
                 .closeButtonColor(UIColor.lightGray)
 
-                
                 //halfsheeet 2 for Text
                 HalfASheet(isPresented: $text) {
                     NavigationView{
@@ -546,7 +433,7 @@ struct ContentView: View {
                             .padding(.vertical)
                             .padding(.all, 26.0)
                         }
-                            .navigationTitle("Speech")
+                        .navigationTitle("Speech")
                         
                     }
                     
