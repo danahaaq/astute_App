@@ -22,7 +22,7 @@ struct ColorButton: View {
         VStack(alignment: .leading,spacing: 10){
             Text("Background")
                 .fontWeight(.semibold)
-                .foregroundColor(colorScheme == .dark ? .white : Color(red: 0.258, green: 0.283, blue: 0.287))
+                .foregroundColor(.gray)
             
             HStack(alignment: .center, spacing:19){
                 Button(action:{
@@ -38,7 +38,7 @@ struct ColorButton: View {
                     ZStack{
                         if isselcted1{
                             Circle()
-                                .strokeBorder(colorScheme == .dark ? .white :.black, lineWidth: 5)
+                                .strokeBorder(.black, lineWidth: 5)
                                 .frame(width: 38, height: 38)
                         }
                         Circle()
@@ -59,7 +59,7 @@ struct ColorButton: View {
                     ZStack{
                         if isselcted2{
                             Circle()
-                                .strokeBorder(colorScheme == .dark ? .white :.black, lineWidth: 5)
+                                .strokeBorder(.black, lineWidth: 5)
                                 .frame(width: 38, height: 38)
                         }
                         Circle()
@@ -80,7 +80,7 @@ struct ColorButton: View {
                     ZStack{
                         if isselcted3{
                             Circle()
-                                .strokeBorder(colorScheme == .dark ? .white :.black, lineWidth: 5)
+                                .strokeBorder(.black, lineWidth: 5)
                                 .frame(width: 38, height: 38)
                         }
                         
@@ -102,7 +102,7 @@ struct ColorButton: View {
                     ZStack{
                         if isselcted4{
                             Circle()
-                                .strokeBorder(colorScheme == .dark ? .white :.black, lineWidth: 5)
+                                .strokeBorder(.black, lineWidth: 5)
                                 .frame(width: 38, height: 38)
                         }
                         Circle()
@@ -124,7 +124,7 @@ struct ColorButton: View {
                     ZStack{
                         if isselcted5{
                             Circle()
-                                .strokeBorder(colorScheme == .dark ? .white :.black, lineWidth: 5)
+                                .strokeBorder(.black, lineWidth: 5)
                                 .frame(width: 38, height: 38)
                         }
                         Circle()
@@ -145,7 +145,7 @@ struct ColorButton: View {
                     ZStack{
                         if isselcted6{
                             Circle()
-                                .strokeBorder(colorScheme == .dark ? .white :.black, lineWidth: 5)                                .frame(width: 38, height: 38)
+                                .strokeBorder(.black, lineWidth: 5)                                .frame(width: 38, height: 38)
                         }
                         Circle()
                             .frame(width: 30,height: 30)
