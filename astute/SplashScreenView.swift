@@ -28,19 +28,18 @@ struct SplashScreenView: View {
                         
                     }
                     .scaleEffect(size)
-                    
                     .onAppear {
-                        let baseAnimation = Animation.easeInOut(duration: 1)
+                        let baseAnimation = Animation.easeInOut(duration: 3)
                         let repeated = baseAnimation.repeatForever(autoreverses: true)
                         
                         withAnimation(repeated) {
-                            size = 0.7
+                            size = 0.5
                             
                         }
                     }
                 }
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                         withAnimation {
                             self.isActive = true
                         }
