@@ -16,7 +16,7 @@ struct SplashScreenView: View {
     var body: some View {
         ZStack{
             if isActive {
-                Onbording()
+                OnbordingAppear()
                 
             } else {
                 VStack {

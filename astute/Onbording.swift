@@ -18,12 +18,15 @@ private let onBoardingSteps = [
     OnBoardingStep(image: "3", title: "Listen",title2: "to the text.")]
 
 struct Onbording: View {
+    @AppStorage("welcomeScreenShown") // UserDefaults
+    var welcomeScreenShown: Bool = false
+    
     @Environment(\.colorScheme) var colorScheme
     @State var ispressed :Bool = false
     @State private var currentStep = 0
     var body: some View {
         VStack(alignment: .center, spacing: 10){
-            HStack{
+            HStack(){
                 Text("")
                 Spacer()
                 Button{
@@ -33,11 +36,13 @@ struct Onbording: View {
                     Text("Skip")
                         .font(.system(size: 19))
                         .foregroundColor(colorScheme == .dark ? .white : .gray)
-                }.fullScreenCover(isPresented:$ispressed, content: ContentView.init)}
-            .padding()
+                }.fullScreenCover(isPresented:$ispressed, content: ContentView.init)
+                
+            }.padding(20)
+           
             TabView(selection: $currentStep){
                 ForEach(0..<onBoardingSteps.count, id: \.self){ it in
-                    VStack(alignment:.center,spacing: 30){
+                    VStack(alignment:.center,spacing: 25){
                         
                         Image(onBoardingSteps[it].image)
                             .resizable()
@@ -79,6 +84,9 @@ struct Onbording: View {
                 
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .onAppear(perform: {
+                UserDefaults.standard.welcomeScreenShown = true
+            })
         }
     }
 }
