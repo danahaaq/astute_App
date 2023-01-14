@@ -346,7 +346,7 @@ struct ContentView: View {
                                             .padding()
                                     }
                                     
-                                }
+                                }.padding()
                                 Button(action :{
                                     Big_text = true
                                     text.toggle()
