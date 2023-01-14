@@ -345,7 +345,7 @@ struct ContentView: View {
                         .navigationTitle("Text")
                     }
                 }
-                .height(.proportional(0.40))
+                .height(.proportional(0.50))
                 .closeButtonColor(UIColor.lightGray)
                 .backgroundColor(colorScheme == .dark ? .gray : .white)
                 //halfsheeet 3
