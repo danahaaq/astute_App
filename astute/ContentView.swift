@@ -82,6 +82,7 @@ struct ContentView: View {
                         .padding()
                         .toolbar{ ToolbarItem(placement: .navigationBarTrailing){
                             Button(action:{
+                                Shareid(Info:scanText)
                                 
                             }, label:{
                                 Image(systemName: "square.and.arrow.up")
