@@ -361,7 +361,7 @@ struct ContentView: View {
                                     HStack(alignment: .center){
                                         Image(systemName: "tortoise")
                                             .foregroundColor(Color(colorScheme == .dark ? .white : .black))
-                                        Slider(value: $speedrate, in: 0.1...0.6)
+                                        Slider(value: $speedrate, in: 0.1...1)
                                         Image(systemName: "hare")
                                             .foregroundColor(Color(colorScheme == .dark ? .white : .black))
                                         
@@ -398,7 +398,7 @@ struct ContentView: View {
                                             for Voice in Voices{
                                                 print(Voice.language)
                                             }
-                                            utterance.speak(utterance3)
+                                            utterance.stopSpeaking(at: .immediate)
                                         }
                                     label: {
                                         RoundedRectangle(cornerRadius: 11)
