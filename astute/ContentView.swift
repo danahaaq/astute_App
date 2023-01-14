@@ -99,6 +99,7 @@ struct ContentView: View {
                                 Text(scanText)
                                     .font(.system(size: CGFloat(sliderValue2)))
                                     .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
+                                    .foregroundColor(Color(colorScheme == .dark ? .gray : .black))
                                     .background(bgColor)
                                     .background(in: Rectangle())
                                     .ignoresSafeArea()
@@ -133,6 +134,7 @@ struct ContentView: View {
                             else{
                                 Text(scanText)
                                     .font(.system(size: 19))
+                                    .foregroundColor(Color(colorScheme == .dark ? .gray : .black))
                                     .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
                                     .background(bgColor)
                                     .background(in: Rectangle())
