@@ -276,7 +276,7 @@ struct ContentView: View {
                                 VStack(alignment: .leading,spacing: 10){
                                     Text("Wight")
                                         .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
+                                        .foregroundColor(Color(colorScheme == .dark ? .white : .black))
                                     HStack(alignment: .center){
                                         Text("Size")
                                         Slider(value: $sliderValue, in: 380...1000)
@@ -316,9 +316,11 @@ struct ContentView: View {
                                             }
                                         
                                     })
-                                }  .navigationTitle("Ruler")
+                                }
+                                .navigationTitle("Ruler")
                             }
                         }
+                        .background(Color(colorScheme == .dark ? .gray : .white))
                     }
                 }
                 .backgroundColor(colorScheme == .dark ? .gray : .white)
@@ -334,7 +336,7 @@ struct ContentView: View {
                                 VStack(alignment: .leading,spacing: 10){
                                     Text("Wight")
                                         .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
+                                        .foregroundColor(Color(colorScheme == .dark ? .white : .black))
                                     HStack(alignment: .center){
                                         Text("Size")
                                         Slider(value: $sliderValue2, in: 12...30)
@@ -357,7 +359,7 @@ struct ContentView: View {
                                         }
                                 })
                             }
-                        }
+                        }.background(Color(colorScheme == .dark ? .gray : .white))
                         .navigationTitle("Text")
                     }
                 }
@@ -374,13 +376,13 @@ struct ContentView: View {
                                 VStack(alignment: .leading){
                                     Text("Speed")
                                         .fontWeight(.semibold)
-                                        .foregroundColor(Color(red: 0.258, green: 0.283, blue: 0.287))
+                                        .foregroundColor(Color(colorScheme == .dark ? .white : .black))
                                     HStack(alignment: .center){
                                         Image(systemName: "tortoise")
-                                            .foregroundColor(Color(red: 0.565, green: 0.565, blue: 0.586))
+                                            .foregroundColor(Color(colorScheme == .dark ? .white : .black))
                                         Slider(value: $speedrate, in: 0.1...0.6)
                                         Image(systemName: "hare")
-                                            .foregroundColor(Color(red: 0.565, green: 0.565, blue: 0.586))
+                                            .foregroundColor(Color(colorScheme == .dark ? .white : .black))
                                         
                                             .padding()
                                     }
@@ -433,7 +435,7 @@ struct ContentView: View {
                             }
                             .padding(.vertical)
                             .padding(.all, 26.0)
-                        }
+                        }.background(Color(colorScheme == .dark ? .gray : .white))
                         .navigationTitle("Speech")
                         
                     }
