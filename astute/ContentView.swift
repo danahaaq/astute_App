@@ -4,22 +4,17 @@
 //
 //  Created by Aldanah Alqbbani on 15/06/1444 AH.
 //
-
 import SwiftUI
 import VisionKit
 import HalfASheet
 import AVFoundation
-
 var utterance = AVSpeechSynthesizer()
 struct ContentView: View {
-    
     @Environment(\.colorScheme) var colorScheme
-    
     @State private var currentPosition: CGSize = .zero
     @State private var newPosition: CGSize = .zero
     @State private var parentRect: CGRect = .zero
     @State private var childRect: CGRect = .zero
-    
     func correctPostion() {
         print(self.currentPosition)
         if self.currentPosition.width > 100 {
@@ -35,17 +30,13 @@ struct ContentView: View {
             self.currentPosition.height = -500
         }
     }
-    
     @State private var ruler_insert:Bool = false
     @State private var ruler_remove:Bool = false
-    
     @State private var Big_text:Bool = false
     @State private var Remove_Big_text:Bool = false
-    
     @State private var startScanning = false
     @State private var scanText = NSLocalizedString("", comment: "")
     @State private var scanText2 = NSLocalizedString("",comment: "")
-    
     @State private var circle1 : Bool = false
     @State private var circle2 : Bool = false
     @State private var circle3 : Bool = false
@@ -56,16 +47,12 @@ struct ContentView: View {
     @State var text: Bool = false
     @State var ruler: Bool = false
     @State var speach: Bool = false
-    
     @State private var bgColor = Color(red: 0.965, green: 0.965, blue: 0.965)
     @State private var bgColor1 = Color(.blue)
-    
     @State var sliderValue : Float = 389.0
     @State var sliderValue2 : Float = 19.0
-    
     @State private var isToggle : Bool = false
     @State var speedrate : Float = 0.1
-    
     var body: some View {
         //       why? because the share tool
         NavigationView{
@@ -125,7 +112,6 @@ struct ContentView: View {
                                                             self.newPosition = self.currentPosition
                                                         }
                                                 )
-                                            
                                         }
                                         
                                     }
@@ -164,13 +150,9 @@ struct ContentView: View {
                                         }
                                         
                                     }
-                                
                             }
-                            
                         }
-                        
                     }
-                    
                     //                    Vstack parient for tools bar
                     VStack{
                         //                        tool bar
@@ -243,14 +225,12 @@ struct ContentView: View {
                                 }
                             })
                         }.padding(21)
-                        
                         //                        scan condition
                     }
                     
                     if scan{
                         DataScanner(startScanning: $startScanning, scanText: $scanText)
                     }
-                    
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .background(bgColor)
@@ -368,7 +348,6 @@ struct ContentView: View {
                 .height(.proportional(0.40))
                 .closeButtonColor(UIColor.lightGray)
                 .backgroundColor(colorScheme == .dark ? .gray : .white)
-                
                 //halfsheeet 3
                 HalfASheet(isPresented: $speach) {
                     NavigationView{
@@ -419,7 +398,6 @@ struct ContentView: View {
                                             for Voice in Voices{
                                                 print(Voice.language)
                                             }
-                                            //                                        utterance.stop(utterance2)
                                             utterance.speak(utterance3)
                                         }
                                     label: {
@@ -439,16 +417,12 @@ struct ContentView: View {
                             .padding(.all, 26.0)
                         }.background(Color(colorScheme == .dark ? .gray : .white))
                         .navigationTitle("Speech")
-                        
                     }
-                    
                 }
-                
                 .height(.proportional(0.50))
                 .closeButtonColor(UIColor.lightGray)
                 .backgroundColor(colorScheme == .dark ? .gray : .white)
             }.navigationBarBackButtonHidden(true)
-            
         }
     }
 }
