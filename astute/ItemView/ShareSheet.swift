@@ -9,13 +9,13 @@ struct ShareSheet: View {
     var danah = "danah"
     var body: some View {
         VStack{
-//            Button(action: {Shareid(Info: danah)}){
-//                Text ("Share ID")
-//                    .foregroundColor (.red)
-//                    .bold()
-//                    .frame(width: 100, height: 40, alignment: .center)
-//                    .background(Color.white).cornerRadius(12)
-//            }
+            Button(action: {Shareid(Info: danah)}){
+                Text ("Share")
+                    .foregroundColor (.red)
+                    .bold()
+                    .frame(width: 100, height: 40, alignment: .center)
+                    .background(Color.white).cornerRadius(12)
+            }
         }
         }
         
