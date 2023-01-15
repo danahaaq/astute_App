@@ -17,10 +17,8 @@ struct ShareSheet: View {
                     .background(Color.white).cornerRadius(12)
             }
         }
-        }
-        
     }
-    
+}
     func Shareid(Info: String){
         let infoU = Info
         let av = UIActivityViewController(activityItems: [infoU],applicationActivities: nil)

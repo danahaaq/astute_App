@@ -8,7 +8,6 @@ import SwiftUI
 import Foundation
 
 struct ColorButton: View {
-    
     @Binding var bgColor: Color
     @Environment(\.colorScheme) var colorScheme
     @State private var isselcted1:Bool = false
@@ -17,13 +16,11 @@ struct ColorButton: View {
     @State private var isselcted4:Bool = false
     @State private var isselcted5:Bool = false
     @State private var isselcted6:Bool = false
-    
     var body: some View {
         VStack(alignment: .leading,spacing: 10){
             Text("Background")
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
-            
             HStack(alignment: .center, spacing:19){
                 Button(action:{
                     isselcted1 = true

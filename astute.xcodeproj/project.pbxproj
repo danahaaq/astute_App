@@ -119,6 +119,7 @@
 				E61ADDA72971F9F20006503A /* OnbordingAppear.swift */,
 				E6646D3C2970286700671EC0 /* Onbording.swift */,
 				E60C9A6D296B097500CCBDFB /* ContentView.swift */,
+				E60C9A95296B5B9800CCBDFB /* DataScanner.swift */,
 				E62C24EF2972A2D60087366C /* ItemView */,
 				E60C9A6F296B097600CCBDFB /* Assets.xcassets */,
 				E60C9A71296B097600CCBDFB /* Preview Content */,
@@ -130,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				E60C9A72296B097600CCBDFB /* Preview Assets.xcassets */,
-				E60C9A95296B5B9800CCBDFB /* DataScanner.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";

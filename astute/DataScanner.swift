@@ -12,7 +12,6 @@ import VisionKit
 struct DataScanner: UIViewControllerRepresentable {
     @Binding var startScanning: Bool
     @Binding var scanText: String
-
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let controller = DataScannerViewController(
             recognizedDataTypes: [.text()],
