@@ -20,7 +20,7 @@ struct ColorButton: View {
         VStack(alignment: .leading,spacing: 10){
             Text("Background")
                 .fontWeight(.semibold)
-                .foregroundColor(.gray)
+                .foregroundColor(Color(red: 0.309, green: 0.334, blue: 0.364))
             HStack(alignment: .center, spacing:19){
                 Button(action:{
                     isselcted1 = true
@@ -29,7 +29,7 @@ struct ColorButton: View {
                     isselcted4 = false
                     isselcted5 = false
                     isselcted6 = false
-                    bgColor = Color(red: 0.914, green: 0.901, blue: 0.619)
+                    bgColor = Color(red: 0.914, green: 0.901, blue: 0.619).opacity(0.4)
                 }
                        , label: {
                     ZStack{
@@ -50,7 +50,7 @@ struct ColorButton: View {
                     isselcted4 = false
                     isselcted5 = false
                     isselcted6 = false
-                    bgColor = Color(red: 0.72, green: 0.55, blue: 0.687)
+                    bgColor = Color(red: 0.72, green: 0.55, blue: 0.687).opacity(0.4)
                 }
                        , label: {
                     ZStack{
@@ -71,7 +71,7 @@ struct ColorButton: View {
                     isselcted4 = false
                     isselcted5 = false
                     isselcted6 = false
-                    bgColor = Color(red: 0.412, green: 0.917, blue: 0.967)
+                    bgColor = Color(red: 0.412, green: 0.917, blue: 0.967).opacity(0.4)
                 }
                        , label: {
                     ZStack{
@@ -93,7 +93,7 @@ struct ColorButton: View {
                     isselcted4 = true
                     isselcted5 = false
                     isselcted6 = false
-                    bgColor = Color(red: 0.971, green: 0.727, blue: 0.528)
+                    bgColor = Color(red: 0.971, green: 0.727, blue: 0.528).opacity(0.4)
                 }
                        , label: {
                     ZStack{
@@ -115,7 +115,7 @@ struct ColorButton: View {
                     isselcted5 = true
                     isselcted6 = false
                     
-                    bgColor = Color(red: 0.43, green: 0.945, blue: 0.668)
+                    bgColor = Color(red: 0.43, green: 0.945, blue: 0.668).opacity(0.4)
                 }
                        , label: {
                     ZStack{
@@ -136,7 +136,7 @@ struct ColorButton: View {
                     isselcted4 = false
                     isselcted5 = false
                     isselcted6 = true
-                    bgColor = Color(red: 0.43, green: 0.945, blue: 0.668)
+                    bgColor = Color(red: 0.168, green: 0.959, blue: 0.857).opacity(0.3)
                 }
                        , label: {
                     ZStack{
